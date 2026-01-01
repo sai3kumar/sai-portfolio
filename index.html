@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Sai | Software Engineer</title>
+
+  <style>
+    :root {
+      --black: #000000;
+      --white: #ffffff;
+      --gray: #6b7280;
+      --border: #e5e7eb;
+      --card-bg: #fafafa;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Inter, system-ui, sans-serif;
+    }
+
+    body {
+      background: var(--white);
+      color: var(--black);
+      line-height: 1.6;
+    }
+
+    a {
+      color: var(--black);
+      text-decoration: none;
+    }
+
+    section {
+      padding: 90px 10%;
+    }
+
+    h1 { font-size: 48px; }
+    h2 { font-size: 28px; margin-bottom: 24px; }
+    h3 { font-size: 18px; }
+
+    p { color: var(--gray); }
+
+    /* ---------- NAV ---------- */
+    nav {
+      position: sticky;
+      top: 0;
+      background: var(--white);
+      border-bottom: 1px solid var(--border);
+      padding: 18px 10%;
+      display: flex;
+      justify-content: space-between;
+      z-index: 10;
+    }
+
+    nav a {
+      margin-left: 24px;
+      font-weight: 500;
+    }
+
+    /* ---------- HERO ---------- */
+    .hero {
+      min-height: 90vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+    }
+
+    .hero h1 span {
+      font-weight: 300;
+    }
+
+    .hero-buttons {
+      margin-top: 32px;
+      display: flex;
+      gap: 16px;
+    }
+
+    .btn {
+      padding: 12px 20px;
+      border: 1px solid var(--black);
+      border-radius: 6px;
+      font-weight: 500;
+      transition: all 0.2s ease;
+    }
+
+    .btn:hover {
+      background: var(--black);
+      color: var(--white);
+    }
+
+    /* ---------- SKILLS ---------- */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+      gap: 20px;
+    }
+
+    .skill-card {
+      border: 1px solid var(--border);
+      padding: 22px;
+      border-radius: 8px;
+      background: var(--card-bg);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+
+    .skill-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+
+    /* ---------- PROJECTS ---------- */
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 28px;
+    }
+
+    .project-card {
+      border: 1px solid var(--border);
+      padding: 26px;
+      border-radius: 10px;
+      transition: transform 0.25s ease;
+    }
+
+    .project-card:hover {
+      transform: translateY(-6px);
+    }
+
+    .project-meta {
+      margin-top: 8px;
+      font-size: 14px;
+      color: var(--gray);
+    }
+
+    .project-links {
+      margin-top: 16px;
+      display: flex;
+      gap: 16px;
+      font-weight: 500;
+    }
+
+    /* ---------- RESUME ---------- */
+    .resume-box {
+      border: 1px dashed var(--border);
+      padding: 48px;
+      text-align: center;
+      border-radius: 10px;
+    }
+
+    /* ---------- TIMELINE ---------- */
+    .timeline {
+      border-left: 2px solid var(--black);
+      padding-left: 28px;
+    }
+
+    .timeline-item {
+      margin-bottom: 32px;
+    }
+
+    /* ---------- CONTACT ---------- */
+    .contact {
+      text-align: center;
+    }
+
+    .contact-links {
+      margin-top: 20px;
+      display: flex;
+      justify-content: center;
+      gap: 24px;
+      font-weight: 500;
+    }
+
+    footer {
+      padding: 32px;
+      text-align: center;
+      color: var(--gray);
+      font-size: 14px;
+    }
+
+    /* ---------- ICON ---------- */
+    .icon {
+      margin-right: 8px;
+    }
+	
+	@media (max-width: 768px) {
+	  section {
+		padding: 60px 6%;
+	  }
+
+	  h1 {
+		font-size: 36px;
+	  }
+
+	  nav {
+		flex-direction: column;
+		gap: 12px;
+	  }
+
+	  .hero-buttons {
+		flex-direction: column;
+		align-items: flex-start;
+	  }
+	}
+	/* ---------- RECRUITER SECTION ---------- */
+
+.recruiter-box {
+  border: 1px solid var(--black);
+  padding: 40px;
+  text-align: center;
+  border-radius: 10px;
+  max-width: 600px;
+  margin: auto;
+}
+
+.recruiter-content {
+  margin-top: 48px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 24px;
+}
+
+.recruiter-card {
+  border: 1px solid var(--border);
+  padding: 28px;
+  border-radius: 10px;
+  background: var(--card-bg);
+}
+
+.recruiter-card.highlight {
+  border: 2px solid var(--black);
+}
+
+.recruiter-actions {
+  margin-top: 16px;
+  display: flex;
+  gap: 12px;
+}
+
+.hidden {
+  display: none;
+}
+
+
+  </style>
+</head>
+
+<body>
+
+<nav>
+  <strong>Sai</strong>
+  <div>
+    <a href="#skills">Skills</a>
+    <a href="#projects">Projects</a>
+    <a href="#resume">Resume</a>
+    <a href="#contact">Contact</a>
+	<a href="#recruiter">Recruiter?</a>
+  </div>
+</nav>
+
+<section class="hero">
+  <h1>Sai <span>| Software Engineer</span></h1>
+  <p>
+    Backend-focused engineer building scalable, reliable systems
+    using Java and Spring Boot.
+  </p>
+
+  <div class="hero-buttons">
+    <a class="btn" href="#">📄 Resume</a>
+    <a class="btn" href="#">🐙 GitHub</a>
+    <a class="btn" href="#">💼 LinkedIn</a>
+  </div>
+</section>
+
+<section id="skills">
+  <h2>⚙️ Skills & Tech Stack</h2>
+  <div class="skills-grid">
+    <div class="skill-card">
+      <h3>🧠 Backend</h3>
+      <p>Java, Spring Boot, Spring Security, JPA</p>
+    </div>
+    <div class="skill-card">
+      <h3>🗄️ Databases</h3>
+      <p>PostgreSQL, Redis</p>
+    </div>
+    <div class="skill-card">
+      <h3>🔁 Messaging</h3>
+      <p>Kafka, Async Processing</p>
+    </div>
+    <div class="skill-card">
+      <h3>🛠️ Tools</h3>
+      <p>Git, Docker, IntelliJ</p>
+    </div>
+  </div>
+</section>
+
+<section id="projects">
+  <h2>📦 Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3>Order Processing System</h3>
+      <p>
+        Built a fault-tolerant order pipeline handling retries,
+        failures, and idempotency.
+      </p>
+      <div class="project-meta">
+        Java · Spring Boot · PostgreSQL
+      </div>
+      <div class="project-links">
+        <a href="#">🔗 GitHub</a>
+        <a href="#">🧩 Architecture</a>
+      </div>
+    </div>
+
+    <div class="project-card">
+      <h3>Notification Service</h3>
+      <p>
+        Designed extensible notification channels with clean abstractions.
+      </p>
+      <div class="project-meta">
+        Spring Boot · Kafka
+      </div>
+      <div class="project-links">
+        <a href="#">🔗 GitHub</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="resume">
+  <h2>📄 Resume</h2>
+  <div class="resume-box">
+    <p>One-page · ATS-friendly · Updated Jan 2026</p><br/>
+    <a class="btn" href="#">Download PDF</a>
+  </div>
+</section>
+
+<section>
+  <h2>🧭 Engineering Experience</h2>
+  <div class="timeline">
+    <div class="timeline-item">
+      <strong>Company A</strong>
+      <p>Worked on backend services and learned real-world trade-offs.</p>
+    </div>
+    <div class="timeline-item">
+      <strong>Company B</strong>
+      <p>Improved performance and handled production issues.</p>
+    </div>
+  </div>
+</section>
+
+<section id="contact" class="contact">
+  <h2>Let’s Talk 👋</h2>
+  <div class="contact-links">
+    <a href="mailto:sai@email.com">📧 Email</a>
+    <a href="#">💼 LinkedIn</a>
+    <a href="#">🐙 GitHub</a>
+  </div>
+</section>
+
+<section id="recruiter">
+  <h2>🎯 Recruiter Access</h2>
+
+  <!-- Login Gate -->
+  <div id="recruiter-login" class="recruiter-box">
+    <p>
+      This section is optimized for recruiters and hiring managers.
+    </p>
+    <button class="btn" onclick="unlockRecruiter()">
+      💼 Continue with LinkedIn
+    </button>
+  </div>
+
+  <!-- Hidden Recruiter Content -->
+  <div id="recruiter-content" class="recruiter-content hidden">
+
+    <!-- Resume -->
+    <div class="recruiter-card">
+      <h3>📄 Resume</h3>
+      <p>One-page · ATS-friendly · Backend-focused</p>
+      <div class="recruiter-actions">
+        <a class="btn" href="#">View</a>
+        <a class="btn" href="#">Download</a>
+      </div>
+    </div>
+
+    <!-- Contact -->
+    <div class="recruiter-card highlight">
+      <h3>📞 Contact (High Priority)</h3>
+      <p>Fastest ways to reach me</p>
+      <div class="recruiter-actions">
+        <a class="btn" href="mailto:sai@email.com">Email</a>
+        <a class="btn" href="#">LinkedIn</a>
+      </div>
+    </div>
+
+    <!-- About -->
+    <div class="recruiter-card">
+      <h3>🧠 About Me</h3>
+      <p>
+        Backend-focused software engineer with strong fundamentals
+        in Java, Spring Boot, and distributed systems.
+        I enjoy building reliable services, reasoning about failures,
+        and writing clean, maintainable code.
+      </p>
+    </div>
+
+  </div>
+</section>
+
+
+<footer>
+  © 2026 Sai · Built with clarity
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function (e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href'))
+        .scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+</script>
+
+</body>
+</html>
