@@ -1,7 +1,7 @@
 function Navbar() {
     return (
         <nav>
-            <strong>Sai</strong>
+            <strong>My Portfolio</strong>
             <div>
 
                 <a href="#skills">Skills</a>
