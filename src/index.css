@@ -36,8 +36,10 @@ a {
 }
 
 section {
-    padding: 90px 10%;
+    padding-top: clamp(72px, 12vh, 100px);
+    padding-bottom: clamp(48px, 8vh, 72px);
 }
+
 
 h1 {
     font-size: 48px;
@@ -280,7 +282,7 @@ html, body, #root {
 
 .hero {
     padding-top: clamp(96px, 18vh, 140px);
-    padding-bottom: clamp(64px, 12vh, 120px);
+    padding-bottom: clamp(8px, 12vh, 16px);
     background: #fff;
 }
 
@@ -567,5 +569,232 @@ html, body, #root {
         scrollbar-width: none;
     }
 }
+/* EXPERIENCE SECTION */
+
+.experience-section {
+    padding: 100px 0;
+    background: #fff;
+}
+
+.experience-title {
+    font-size: 28px;
+    font-weight: 700;
+    margin-bottom: 24px;
+}
+
+/* ITEM */
+
+.experience-item {
+    margin-bottom: 12px;
+    max-width: 900px;
+}
+
+/* HEADER */
+
+.experience-header {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-bottom: 8px;
+}
+
+.experience-logo {
+    width: 96px;
+    height: 96px;
+    object-fit: contain;
+    filter: grayscale(100%);
+    opacity: 0.9;
+    background: transparent;
+}
+
+
+.experience-company {
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.experience-role {
+    font-size: 14px;
+    color: #555;
+}
+
+/* META */
+
+.experience-meta {
+    font-size: 13px;
+    color: #777;
+    margin-bottom: 20px;
+}
+
+/* BULLETS */
+
+.experience-points {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 20px 0;
+}
+
+    .experience-points li {
+        position: relative;
+        padding-left: 14px;
+        font-size: 15px;
+        line-height: 1.7;
+        margin-bottom: 8px;
+    }
+
+        .experience-points li::before {
+            content: "";
+            position: absolute;
+            left: 0;
+            top: 9px;
+            width: 4px;
+            height: 4px;
+            background: #000;
+            border-radius: 50%;
+        }
+
+/* COMPANY LINK */
+
+.experience-link {
+    font-size: 13px;
+    font-weight: 600;
+    color: #000;
+    text-decoration: none;
+    position: relative;
+}
+
+    .experience-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 0;
+        height: 1.5px;
+        background: #000;
+        transition: width 0.25s ease;
+    }
+
+    .experience-link:hover::after {
+        width: 100%;
+    }
+@media (max-width: 768px) {
+    .experience-section {
+        padding: 80px 0;
+    }
+
+    .experience-item {
+        margin-bottom: 56px;
+    }
+}
+section > *:last-child {
+    margin-bottom: 0;
+}
+
+.skills-section,
+.experience-section ,
+contact-section{
+    padding-bottom: clamp(40px, 6vh, 64px);
+}
+
+/* CONNECT SECTION */
+
+/* CONNECT SECTION — CLEAN */
+
+#connect {
+    padding: 80px 0;
+    background: #fff;
+}
+
+/* TITLE */
+
+.connect-title {
+    font-size: 26px;
+    font-weight: 700;
+    margin-bottom: 32px;
+}
+
+/* QUOTE (TEXT ONLY, NO GEOMETRY SHIFT) */
+
+.connect-quote {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.9;
+    color: #333;
+    margin-bottom: 44px;
+    max-width: 640px; /* OK: text width only */
+}
+
+/* LINKS */
+
+.connect-links {
+    display: flex;
+    gap: 28px;
+    flex-wrap: wrap;
+}
+
+    .connect-links a {
+        font-size: 14px;
+        font-weight: 600;
+        letter-spacing: 0.02em;
+        color: #000;
+        text-decoration: none;
+        position: relative;
+    }
+
+        .connect-links a::after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: -3px;
+            width: 0;
+            height: 1.5px;
+            background: #000;
+            transition: width 0.25s ease;
+        }
+
+        .connect-links a:hover::after {
+            width: 100%;
+        }
+
+/* MOBILE */
+
+@media (max-width: 768px) {
+    .connect-quote {
+        font-size: 17px;
+        line-height: 1.8;
+    }
+
+    .connect-links {
+        gap: 20px;
+    }
+}
+.connect-quote {
+    font-family: Georgia, "Times New Roman", serif;
+    font-size: 20px;
+    line-height: 1.9;
+    color: #333;
+    margin-bottom: 44px;
+    max-width: 640px;
+    position: relative; /* required */
+}
+
+.connect-quote::before {
+    content: "";
+    position: absolute;
+    left: -24px; /* sits outside the text */
+    top: 8px;
+    width: 2px;
+    height: calc(100% - 16px);
+    background: rgba(0, 0, 0, 0.08);
+}
+@media (max-width: 768px) {
+    .connect-quote::before {
+        display: none;
+    }
+}
+
+
+
+
 
 
