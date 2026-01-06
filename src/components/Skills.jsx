@@ -1,7 +1,7 @@
 ﻿export default function Skills() {
     return (
         <section className="skills-section" id="skills">
-            <div className="skills-inner">
+            <div className="page-container">
                 <div className="skills-header">
                     <h2 className="skills-title">Core Skills</h2>
                     <a href="#all-skills" className="skills-see-all">

@@ -1,7 +1,7 @@
 ﻿export default function Experience() {
     return (
         <section className="experience-section" id="experience">
-            <div className="layout">
+            <div className="page-container">
                 <h2 className="experience-title">Experience</h2>
 
                 <ExperienceItem
@@ -22,6 +22,7 @@
     );
 }
 
+
 function ExperienceItem({
     company,
     role,
@@ -39,7 +40,7 @@ function ExperienceItem({
                     className="experience-logo"
                 />
 
-                <div>
+                <div className="experience-content">
                     <div className="experience-company">{company}</div>
                     <div className="experience-role">{role}</div>
                 </div>
@@ -66,5 +67,6 @@ function ExperienceItem({
                 </a>
             )}
         </div>
+
     );
 }

@@ -1,14 +1,14 @@
 ﻿export default function Hero() {
     return (
         <section className="hero">
+            <div className="page-container section-with-spine hero-inner">
             <div className="layout hero-inner">
                 <h1 className="hero-name">Sai Kumar Nuthalapati</h1>
 
                 <h2 className="hero-role">Software Engineer</h2>
 
                 <p className="hero-tagline">
-                    I build reliable backend systems with a focus on
-                    clarity, scalability, and real-world trade-offs.
+                       I engineer the core logic, ensuring performance, security, and scalability for applications, one efficient line of code at a time
                 </p>
 
                 <div className="hero-actions">
@@ -28,6 +28,7 @@
                     <a href="#recruiter" className="hero-link hero-link-primary">
                         Recruiter Access
                     </a>
+                </div>
                 </div>
             </div>
         </section>

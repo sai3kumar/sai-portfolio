@@ -15,6 +15,19 @@
     --gray: #6b7280;
     --border: #e5e7eb;
     --card-bg: #fafafa;
+    --container-width: 1100px;
+    --gutter-width: 72px;
+    /* One source of truth */
+    --content-max-width: 1100px;
+    --content-padding: clamp(24px, 8vw, 140px);
+    --section-padding-top: 64px;
+    --section-padding-bottom: 48px;
+}
+@media (max-width: 768px) {
+    :root {
+        --section-padding-top: 48px;
+        --section-padding-bottom: 36px;
+    }
 }
 
 * {
@@ -47,7 +60,7 @@ h1 {
 
 h2 {
     font-size: 28px;
-    margin-bottom: 24px;
+    margin-bottom: 0;
 }
 
 h3 {
@@ -74,6 +87,17 @@ nav {
         margin-left: 24px;
         font-weight: 500;
     }
+@media (max-width: 768px) {
+    .nav-inner {
+        padding: 14px 8%;
+    }
+
+    .nav-links a {
+        margin-left: 16px;
+        font-size: 14px;
+    }
+}
+
 
 
 .btn {
@@ -280,17 +304,44 @@ html, body, #root {
     background: white;
 }
 
+.page-container {
+    max-width: var(--content-max-width);
+    margin-left: auto;
+    margin-right: auto;
+    padding-bottom: 0;
+}
+
+.section-with-spine {
+    position: relative;
+}
+
+    .section-with-spine::before {
+        content: "";
+        position: absolute;
+        left: calc(-1 * var(--gutter-width));
+        top: 12%;
+        height: 70%;
+        width: 1px;
+        background: #000;
+        opacity: 0.06;
+    }
+
+
 .hero {
-    padding-top: clamp(96px, 18vh, 140px);
-    padding-bottom: clamp(8px, 12vh, 16px);
+    position: relative;
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    padding-left: var(--content-padding);
+    padding-right: var(--content-padding);
     background: #fff;
 }
 
-/* Hero typography stays unchanged */
+/* Hero typography — unchanged */
 .hero-name {
     font-size: 56px;
     font-weight: 700;
     letter-spacing: -0.02em;
+    margin-bottom: 12px;
 }
 
 .hero-role {
@@ -309,14 +360,11 @@ html, body, #root {
     margin-bottom: 48px;
 }
 
-
-
 .hero-actions {
     display: flex;
     gap: 28px;
     align-items: center;
 }
-
 
 .hero-link {
     font-size: 14px;
@@ -356,19 +404,19 @@ html, body, #root {
         background: #000;
         color: #fff;
     }
+.hero-inner::before {
+    content: "";
+    position: absolute;
+    left: -60px; /* SAME offset as Skills */
+    top: 12%;
+    height: 60%;
+    width: 1px;
+    background: #000;
+    opacity: 0.08;
+}
 
-    .hero::before {
-        content: "";
-        position: absolute;
-        left: 6%;
-        top: 20%;
-        height: 60%;
-        width: 1px;
-        background: #000;
-        opacity: 0.08;
-    }
 @media (min-width: 1400px) {
-    .hero-inner {
+    .page-container {
         margin-left: auto;
         margin-right: auto;
     }
@@ -392,10 +440,18 @@ html, body, #root {
         align-items: flex-start;
         gap: 18px;
     }
+
+    .hero-inner::before {
+        display: none; /* hide decorative line on mobile */
+    }
 }
 
+
 .skills-section {
-    padding: 120px clamp(24px, 8vw, 140px);
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    padding-left: var(--content-padding);
+    padding-right: var(--content-padding);
     background: #fff;
 }
 
@@ -419,6 +475,7 @@ html, body, #root {
     border-radius: 12px; /* was 14px */
     background: #fff;
     transition: transform 0.25s ease, box-shadow 0.25s ease;
+    margin-bottom: 0;
 }
 
 
@@ -572,7 +629,10 @@ html, body, #root {
 /* EXPERIENCE SECTION */
 
 .experience-section {
-    padding: 100px 0;
+    padding-top: var(--section-padding-top);
+    padding-bottom: var(--section-padding-bottom);
+    padding-left: var(--content-padding);
+    padding-right: var(--content-padding);
     background: #fff;
 }
 
@@ -582,14 +642,6 @@ html, body, #root {
     margin-bottom: 24px;
 }
 
-/* ITEM */
-
-.experience-item {
-    margin-bottom: 12px;
-    max-width: 900px;
-}
-
-/* HEADER */
 
 .experience-header {
     display: flex;
@@ -602,9 +654,13 @@ html, body, #root {
     width: 96px;
     height: 96px;
     object-fit: contain;
+    flex-shrink: 0; /* 🔥 critical */
     filter: grayscale(100%);
     opacity: 0.9;
-    background: transparent;
+}
+.experience-content {
+    display: flex;
+    flex-direction: column;
 }
 
 
@@ -618,15 +674,16 @@ html, body, #root {
     color: #555;
 }
 
-/* META */
-
 .experience-meta {
     font-size: 13px;
     color: #777;
     margin-bottom: 20px;
 }
 
-/* BULLETS */
+.experience-item {
+    margin-bottom: 64px;
+}
+
 
 .experience-points {
     list-style: none;
@@ -652,9 +709,6 @@ html, body, #root {
             background: #000;
             border-radius: 50%;
         }
-
-/* COMPANY LINK */
-
 .experience-link {
     font-size: 13px;
     font-weight: 600;
@@ -677,24 +731,31 @@ html, body, #root {
     .experience-link:hover::after {
         width: 100%;
     }
+
 @media (max-width: 768px) {
     .experience-section {
-        padding: 80px 0;
+        padding: 80px 8%;
     }
 
-    .experience-item {
-        margin-bottom: 56px;
+    .experience-header {
+        align-items: flex-start;
+    }
+
+    .experience-logo {
+        width: 72px;
+        height: 72px;
     }
 }
+
 section > *:last-child {
     margin-bottom: 0;
 }
 
-.skills-section,
+/*.skills-section,
 .experience-section ,
 contact-section{
     padding-bottom: clamp(40px, 6vh, 64px);
-}
+}*/
 
 /* CONNECT SECTION */
 
