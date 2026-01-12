@@ -1,81 +1,87 @@
-﻿export default function Skills() {
-    return (
-        <section className="skills-section" id="skills">
-            <div className="page-container">
-                <div className="skills-header">
-                    <h2 className="skills-title">Core Skills</h2>
-                    <a href="#all-skills" className="skills-see-all">
-                        See all →
-                    </a>
-                </div>
+﻿import React from "react";
+
+export default function Skills() {
+  return (
+    <section className="skills-section">
+        <div class="page-container">
+      <div className="skills-header">
+        <h2 className="skills-title">Skills</h2>
+        <button className="skills-see-all">See all</button>
+    </div>
 
 
-                <div className="skills-grid">
-                    <SkillCard
-                        title="Backend Engineering"
-                        tools="Java · Spring Boot · Spring Security · JPA"
-                        points={[
-                            "Designed clean, layered REST APIs",
-                            "Handled transactions and data consistency",
-                            "Focused on maintainability and clarity"
-                        ]}
-                        links={[
-                            { label: "Read more", href: "#" },
-                            { label: "Projects", href: "#projects" }
-                        ]}
-                    />
+      <div className="skills-track">
+        <SkillCard
+          title="Spring Boot"
+          description="REST APIs, JPA, Security, Transactions"
+          level="Advanced"
+          experience="3+ yrs"
+        />
 
-                    <SkillCard
-                        title="Data & Persistence"
-                        tools="PostgreSQL · Redis"
-                        points={[
-                            "Designed normalized schemas",
-                            "Used indexing for performance",
-                            "Worked with transactional boundaries"
-                        ]}
-                        links={[
-                            { label: "Read more", href: "#" }
-                        ]}
-                    />
+        <SkillCard
+          title="Java"
+          description="Core Java, Multithreading, JVM"
+          level="Advanced"
+          experience="4+ yrs"
+        />
 
-                    <SkillCard
-                        title="Distributed Systems"
-                        tools="Kafka · Async Processing"
-                        points={[
-                            "Designed retry-safe flows",
-                            "Handled idempotency concerns",
-                            "Reasoned about failure scenarios"
-                        ]}
-                        links={[
-                            { label: "Read more", href: "#" }
-                        ]}
-                    />
-                </div>
-            </div>
-        </section>
-    );
+        <SkillCard
+          title="System Design"
+          description="Scalable APIs, Caching, Databases"
+          level="Intermediate"
+          experience="2+ yrs"
+        />
+        <SkillCard
+          title="System Design"
+          description="Scalable APIs, Caching, Databases"
+          level="Intermediate"
+          experience="2+ yrs"
+        />
+        <SkillCard
+          title="System Design"
+          description="Scalable APIs, Caching, Databases"
+          level="Intermediate"
+          experience="2+ yrs"
+        />
+        <SkillCard
+          title="System Design"
+          description="Scalable APIs, Caching, Databases"
+          level="Intermediate"
+          experience="2+ yrs"
+        />
+      </div>
+      </div>
+    </section>
+  );
 }
 
-function SkillCard({ title, tools, points, links }) {
-    return (
-        <div className="skill-card">
-            <h3 className="skill-card-title">{title}</h3>
+export function SkillCard({ title, description, level, experience }) {
+  return (
+    <article className="skill-card">
+      <div className="skill-card__header">
+        <span className="skill-card__icon">
+          {/* icon goes here */}
+        </span>
 
-            <p className="skill-tools">{tools}</p>
+        <h3 className="skill-card__title">{title}</h3>
+      </div>
 
-            <ul className="skill-points">
-                {points.map((p, i) => (
-                    <li key={i}>{p}</li>
-                ))}
+      <p className="skill-card__desc">{description}</p>
+
+      <div className="skill-card__meta">
+        <span className="skill-card__level">{level}</span>
+        <span className="skill-card__experience">{experience}</span>
+        
+      </div>
+      
+      <div className="skill-card__practice">
+        <span>Daily:</span>
+            <ul>
+            <li>Build small features</li>
+            <li>Read production code</li>
+            <li>Fix edge cases</li>
             </ul>
-
-            <div className="skill-links">
-                {links.map((l, i) => (
-                    <a key={i} href={l.href}>
-                        {l.label}
-                    </a>
-                ))}
-            </div>
         </div>
-    );
+    </article>
+  );
 }
