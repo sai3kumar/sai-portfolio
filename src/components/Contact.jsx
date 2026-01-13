@@ -1,20 +1,60 @@
 ﻿export default function Contact() {
   return (
-      <section id="connect">
-          <div className="layout">
-              <h2 className="connect-title">Connect</h2>
+    <section id="contact" className="contact-section">
+        <div className="page-container">
+        {/* ===== Identity / Intent ===== */}
+        <header className="contact-header">
+          <h2 className="contact-title">Let’s talk engineering</h2>
+        </header>
 
-              <blockquote className="connect-quote">
-                  “For me, backend engineering isn’t just about writing code. I enjoy thinking through system design, weighing trade-offs, and constantly learning from real problems. If you like having thoughtful conversations about engineering or working together on ideas, I’d be glad to connect.”
-              </blockquote>
+        {/* ===== Perspective / Human signal ===== */}
+        <div className="contact-intro">
+          <p>
+            I enjoy working on backend systems where design decisions matter —
+            thinking through trade-offs, scalability, and learning from real
+            production problems. If you’re interested in meaningful engineering
+            conversations or collaboration, I’m always open to connect.
+          </p>
+        </div>
 
-              <div className="connect-links">
-                  <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
-                  <a href="mailto:you@email.com">Email</a>
-                  <a href="https://github.com/yourprofile" target="_blank">GitHub</a>
-              </div>
+        {/* ===== Intentional action paths ===== */}
+        <div className="contact-actions">
+          <div className="contact-action contact-action--primary">
+            <span className="contact-action-label">
+              For hiring or professional conversations
+            </span>
+            <a
+              href="https://linkedin.com/in/yourprofile"
+              target="_blank"
+              rel="noreferrer"
+            >
+              LinkedIn
+            </a>
           </div>
-      </section>
 
+          <div className="contact-action">
+            <span className="contact-action-label">
+              For collaboration or technical discussions
+            </span>
+            <a
+              href="https://github.com/yourprofile"
+              target="_blank"
+              rel="noreferrer"
+            >
+              GitHub
+            </a>
+          </div>
+
+          <div className="contact-action">
+            <span className="contact-action-label">
+              For a direct conversation
+            </span>
+            <a href="mailto:you@email.com">
+              Email
+            </a>
+          </div>
+        </div>
+        </div>
+    </section>
   );
 }

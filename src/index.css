@@ -7,6 +7,7 @@
     margin: 0 auto;
     padding-left: clamp(24px, 8vw, 20px);
     padding-right: clamp(24px, 8vw, 20px);
+    box-sizing: border-box;
 }
 html,
 body {
@@ -317,7 +318,7 @@ html, body, #root {
 .hero {
     position: relative;
     padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
+    padding-bottom: 72px;
     padding-left: var(--content-padding);
     padding-right: var(--content-padding);
     background: #fff;
@@ -451,13 +452,17 @@ body {
 ===================================================== */
 .skills-section {
   width: 100%;
-  padding: 24px 0;
+  padding-top: 32px;
+  padding-bottom: 24px;
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
   box-sizing: border-box;
 }
 
+
 .skills-title {
   margin: 0 0 12px 0;
-  font-size: 20px;
+  font-size: 24px;
   font-weight: 600;
 }
 
@@ -627,15 +632,8 @@ body {
   color: #374151; /* slate-700 */
 }
 @media (max-width: 768px) {
-  .skills-section {
-    padding-left: 8%;
-    padding-right: 8%;
-  }
-
-  /* Override container padding on mobile */
-  .skills-section .page-container {
-    padding-left: 0;
-    padding-right: 0;
+    :root {
+    --content-padding: 8%;
   }
 
   .skills-header {
@@ -655,17 +653,17 @@ body {
 /* EXPERIENCE SECTION */
 
 .experience-section {
-    padding-top: var(--section-padding-top);
-    padding-bottom: var(--section-padding-bottom);
+    padding-top: 32px;
+    padding-bottom: 24px;
     padding-left: var(--content-padding);
     padding-right: var(--content-padding);
     background: #fff;
 }
 
 .experience-title {
-    font-size: 28px;
+    font-size: 24px;
     font-weight: 700;
-    margin-bottom: 24px;
+    margin-bottom: 12px;
 }
 
 
@@ -777,108 +775,164 @@ section > *:last-child {
     margin-bottom: 0;
 }
 
-/*.skills-section,
-.experience-section ,
-contact-section{
-    padding-bottom: clamp(40px, 6vh, 64px);
-}*/
+/* =====================================================
+   CONTACT SECTION — ALIGNED & STABLE
+===================================================== */
 
-/* CONNECT SECTION */
-
-/* CONNECT SECTION — CLEAN */
-
-#connect {
-    padding: 80px 0;
-    background: #fff;
+.contact-section {
+  position: relative;
+  padding-top: 32px;
+  padding-bottom: 24px;
+  padding-left: var(--content-padding);
+  padding-right: var(--content-padding);
+  background: #fff;
 }
 
-/* TITLE */
-
-.connect-title {
-    font-size: 26px;
-    font-weight: 700;
-    margin-bottom: 32px;
+/* Soft divider */
+.contact-section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  width: 120px;
+  height: 1px;
+  background: #e5e7eb;
+  transform: translateX(-50%);
 }
 
-/* QUOTE (TEXT ONLY, NO GEOMETRY SHIFT) */
+/* =====================================================
+   HEADER
+===================================================== */
 
-.connect-quote {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 20px;
-    line-height: 1.9;
-    color: #333;
-    margin-bottom: 44px;
-    max-width: 640px; /* OK: text width only */
+.contact-header {
+  margin-bottom: 20px;
 }
 
-/* LINKS */
-
-.connect-links {
-    display: flex;
-    gap: 28px;
-    flex-wrap: wrap;
+.contact-title {
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  margin: 0 0 16px;
+  color: #111827;
 }
 
-    .connect-links a {
-        font-size: 14px;
-        font-weight: 600;
-        letter-spacing: 0.02em;
-        color: #000;
-        text-decoration: none;
-        position: relative;
-    }
+/* =====================================================
+   INTRO
+===================================================== */
 
-        .connect-links a::after {
-            content: "";
-            position: absolute;
-            left: 0;
-            bottom: -3px;
-            width: 0;
-            height: 1.5px;
-            background: #000;
-            transition: width 0.25s ease;
-        }
+.contact-intro {
+  max-width: 680px;
+  margin-bottom: 36px;
+}
 
-        .connect-links a:hover::after {
-            width: 100%;
-        }
+.contact-intro p {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.7;
+  color: #374151;
+}
 
-/* MOBILE */
+/* =====================================================
+   ACTIONS
+===================================================== */
+
+.contact-actions {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 28px;
+}
+
+/* Action card */
+
+.contact-action {
+  padding: 20px 22px;
+  border-radius: 14px;
+  background: #fafafa;
+  border: 1px solid #e5e7eb;
+
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.contact-action:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.06);
+}
+
+.contact-action-label {
+  font-size: 13px;
+  font-weight: 500;
+  color: #6b7280;
+}
+
+.contact-action a {
+  font-size: 17px;
+  font-weight: 600;
+  color: #2563eb;
+  text-decoration: none;
+  width: fit-content;
+}
+
+.contact-action a:hover {
+  text-decoration: underline;
+}
+
+.contact-action--primary {
+  background: #f0f7ff;
+  border-color: #bfdbfe;
+}
+
+.contact-action--primary a {
+  color: #1d4ed8;
+}
+
+/* =====================================================
+   RESPONSIVE — NO ALIGNMENT OVERRIDES
+===================================================== */
+
+@media (max-width: 1024px) {
+  .contact-actions {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+}
 
 @media (max-width: 768px) {
-    .connect-quote {
-        font-size: 17px;
-        line-height: 1.8;
-    }
+  .contact-title {
+    font-size: 24px;
+  }
 
-    .connect-links {
-        gap: 20px;
-    }
-}
-.connect-quote {
-    font-family: Georgia, "Times New Roman", serif;
-    font-size: 20px;
-    line-height: 1.9;
-    color: #333;
-    margin-bottom: 44px;
-    max-width: 640px;
-    position: relative; /* required */
+  .contact-intro {
+    margin-bottom: 28px;
+  }
+
+  .contact-intro p {
+    font-size: 15.5px;
+  }
+
+  .contact-actions {
+    grid-template-columns: 1fr;
+  }
+
+  .contact-action {
+    padding: 18px 20px;
+  }
 }
 
-.connect-quote::before {
-    content: "";
-    position: absolute;
-    left: -24px; /* sits outside the text */
-    top: 8px;
-    width: 2px;
-    height: calc(100% - 16px);
-    background: rgba(0, 0, 0, 0.08);
+@media (max-width: 420px) {
+  .contact-title {
+    font-size: 22px;
+  }
+
+  .contact-intro p {
+    font-size: 14px;
+  }
 }
-@media (max-width: 768px) {
-    .connect-quote::before {
-        display: none;
-    }
-}
+
+
 
 
 
