@@ -22,11 +22,11 @@
                     </a>
 
                     <a href="#contact" className="hero-link">
-                        Contact
+                        Resume
                     </a>
 
                     <a href="#recruiter" className="hero-link hero-link-primary">
-                        Recruiter Access
+                        My Tech Blog
                     </a>
                 </div>
                 </div>
